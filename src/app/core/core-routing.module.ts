@@ -24,7 +24,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       },
-      { path: 'feature-one', loadChildren: () => import('../feature-one/feature-one.module').then(m => m.FeatureOneModule) },
+      { path: 'highcharts', loadChildren: () => import('../highcharts/highcharts.module').then(m => m.HighChartsDemoModule) },
       indexedRoute,
       fallBackRoute
     ]

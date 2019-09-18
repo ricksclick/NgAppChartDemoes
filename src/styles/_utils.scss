@@ -1,1 +1,78 @@
-/* Use this file to maintain utilities classes. Can be imported and extended wherever needed */
+%primary-gradient {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZGQxMGU4IiBzdG9wLW9wYWNpdHk9IjAuOTQiLz4KICAgIDxzdG9wIG9mZnNldD0iNiUiIHN0b3AtY29sb3I9IiNkMzIxZWEiIHN0b3Atb3BhY2l0eT0iMC45NCIvPgogICAgPHN0b3Agb2Zmc2V0PSIyOSUiIHN0b3AtY29sb3I9IiNhYjYzZjMiIHN0b3Atb3BhY2l0eT0iMC42NiIvPgogICAgPHN0b3Agb2Zmc2V0PSIzMSUiIHN0b3AtY29sb3I9IiNhODYwZjEiIHN0b3Atb3BhY2l0eT0iMC42NCIvPgogICAgPHN0b3Agb2Zmc2V0PSIzNCUiIHN0b3AtY29sb3I9IiNhNDVjZWYiIHN0b3Atb3BhY2l0eT0iMC41NSIvPgogICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiNhMzViZWUiIHN0b3Atb3BhY2l0eT0iMC41NyIvPgogICAgPHN0b3Agb2Zmc2V0PSIzNyUiIHN0b3AtY29sb3I9IiNhMDU4ZWMiIHN0b3Atb3BhY2l0eT0iMC41NyIvPgogICAgPHN0b3Agb2Zmc2V0PSI1MyUiIHN0b3AtY29sb3I9IiM4OTQyZGYiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0NzAwYmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(221, 16, 232, 0.94) 0%,
+    rgba(211, 33, 234, 0.94) 6%,
+    rgba(171, 99, 243, 0.66) 29%,
+    rgba(168, 96, 241, 0.64) 31%,
+    rgba(164, 92, 239, 0.55) 34%,
+    rgba(163, 91, 238, 0.57) 35%,
+    rgba(160, 88, 236, 0.57) 37%,
+    rgba(137, 66, 223, 0.8) 53%,
+    rgba(71, 0, 186, 1) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    color-stop(0%, rgba(221, 16, 232, 0.94)),
+    color-stop(6%, rgba(211, 33, 234, 0.94)),
+    color-stop(29%, rgba(171, 99, 243, 0.66)),
+    color-stop(31%, rgba(168, 96, 241, 0.64)),
+    color-stop(34%, rgba(164, 92, 239, 0.55)),
+    color-stop(35%, rgba(163, 91, 238, 0.57)),
+    color-stop(37%, rgba(160, 88, 236, 0.57)),
+    color-stop(53%, rgba(137, 66, 223, 0.8)),
+    color-stop(100%, rgba(71, 0, 186, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(221, 16, 232, 0.94) 0%,
+    rgba(211, 33, 234, 0.94) 6%,
+    rgba(171, 99, 243, 0.66) 29%,
+    rgba(168, 96, 241, 0.64) 31%,
+    rgba(164, 92, 239, 0.55) 34%,
+    rgba(163, 91, 238, 0.57) 35%,
+    rgba(160, 88, 236, 0.57) 37%,
+    rgba(137, 66, 223, 0.8) 53%,
+    rgba(71, 0, 186, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(221, 16, 232, 0.94) 0%,
+    rgba(211, 33, 234, 0.94) 6%,
+    rgba(171, 99, 243, 0.66) 29%,
+    rgba(168, 96, 241, 0.64) 31%,
+    rgba(164, 92, 239, 0.55) 34%,
+    rgba(163, 91, 238, 0.57) 35%,
+    rgba(160, 88, 236, 0.57) 37%,
+    rgba(137, 66, 223, 0.8) 53%,
+    rgba(71, 0, 186, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(221, 16, 232, 0.94) 0%,
+    rgba(211, 33, 234, 0.94) 6%,
+    rgba(171, 99, 243, 0.66) 29%,
+    rgba(168, 96, 241, 0.64) 31%,
+    rgba(164, 92, 239, 0.55) 34%,
+    rgba(163, 91, 238, 0.57) 35%,
+    rgba(160, 88, 236, 0.57) 37%,
+    rgba(137, 66, 223, 0.8) 53%,
+    rgba(71, 0, 186, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(221, 16, 232, 0.94) 0%,
+    rgba(211, 33, 234, 0.94) 6%,
+    rgba(171, 99, 243, 0.66) 29%,
+    rgba(168, 96, 241, 0.64) 31%,
+    rgba(164, 92, 239, 0.55) 34%,
+    rgba(163, 91, 238, 0.57) 35%,
+    rgba(160, 88, 236, 0.57) 37%,
+    rgba(137, 66, 223, 0.8) 53%,
+    rgba(71, 0, 186, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0dd10e8', endColorstr='#4700ba',GradientType=1 );
+}

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FeatureOneComponent } from './feature-one.component';
+import { HighChartsBaseComponent } from './highcharts.component';
 
-const routes: Routes = [{ path: '', component: FeatureOneComponent }];
+const routes: Routes = [{ path: '', component: HighChartsBaseComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FeatureOneRoutingModule { }
+export class HighChartsBaseRoutingModule { }

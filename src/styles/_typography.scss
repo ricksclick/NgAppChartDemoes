@@ -1,0 +1,30 @@
+//Colors
+//Elemental Colors
+$black: #000;
+$blue-off: #3d6392;
+$cyan: #1eabc7;
+$white: #fff;
+$white-off: #d1e0eb;
+
+//Theme Colors
+$primary-fill-1: $blue-off;
+$primary-text-1: $white-off;
+$primary-text-2: $white;
+$text-hightlight-1: $cyan;
+
+@import "./fonts";
+//Fonts
+//Font Families
+$primary-font-regular: "Roboto";
+$secondary-font-regular: "Open Sans", sans-serif;
+
+//Font Sizes
+$h1: 32px;
+$h2: 28px;
+$h3: 24px;
+$h4: 20px;
+$h5: 18px;
+$h6: 16px;
+
+//Other Cosmetics
+$box-shadow-bottom: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.45);

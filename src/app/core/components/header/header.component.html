@@ -1,1 +1,48 @@
-<p>header works!</p>
+<header class="main-nav-container">
+    <div class="banner">
+        
+    </div>
+    <nav class="main-nav">
+        <div class="brand-wrapper">
+            <a href="javascript:void(0)" routerLink="/home" class="brand-logo">
+                <span>Prithvi</span>
+                <span>Mohanty</span>
+            </a>
+        </div>
+        <!-- nav-toggle hidden in desktop -->
+        <div class="nav-toggle">
+            <a href="javascript:void(0)" (click)="toggleNav()">
+                <span>
+                    <fa-icon [icon]="faBars"></fa-icon>
+                </span>
+            </a>
+        </div>
+        <div class="nav-elements" [@dropdown]="animationEnabled ? navToggled ? 'expanded' : 'collapsed' : '*'">
+            <ul [@staggeredFadeIn]="navToggled">
+                <li>
+                    <a href="javascript:void(0)" routerLink="/about" routerLinkActive='active'>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" routerLink="/blog" routerLinkActive='active'>
+                        <span>Blogs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" routerLink="/demo" routerLinkActive='active'>
+                        <span>Demos</span>
+                    </a>
+                </li>
+                <li class="login-btn">
+                    <a href="javascript:void(0)">
+                        <fa-icon></fa-icon>
+                        <span>Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- <fa-icon icon="bars"></fa-icon> -->

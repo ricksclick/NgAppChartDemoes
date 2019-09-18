@@ -1,2 +1,5 @@
-/* Use this file as the master file, to just import other scss file in the sequence required */
-@import './global';
+/* You can add global styles to this file, and also import other style files */
+
+@import "./typography";
+@import "./global";
+
