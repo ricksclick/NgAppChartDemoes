@@ -1,29 +1,6 @@
 <section>
     <div class="list-group">
-        <a href="/stocks/ATVI" class="list-group-item active">
-            <span>ATVI</span>
-            <span class="badge">$47.08</span>
-            <span class="badge">+4.75</span>
-        </a>
-        <a href="/stocks/ATVI" class="list-group-item">
-            <span>ATVI</span>
-            <span class="badge">$47.08</span>
-            <span class="badge">+1.75</span>
-        </a>
-        <a href="/stocks/ATVI" class="list-group-item">
-            <span>ATVI</span>
-            <span class="badge">$47.08</span>
-            <span class="badge">+4.75</span>
-        </a>
-        <a href="/stocks/ATVI" class="list-group-item">
-            <span>ATVI</span>
-            <span class="badge">$47.08</span>
-            <span class="badge">+1.75</span>
-        </a>
-        <a href="/stocks/ATVI" class="list-group-item">
-            <span>ATVI</span>
-            <span class="badge">$47.08</span>
-            <span class="badge">+1.75</span>
-        </a>
+        <stocklist-item *ngFor="let symbol of symbols" [symbol]="symbol"
+            (symbolSelected)="onStockSymbolSelected($event)"></stocklist-item>
     </div>
 </section>

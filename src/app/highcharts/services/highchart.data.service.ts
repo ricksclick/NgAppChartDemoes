@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HighchartDataService {
-  apikey = '810AMVHGA050E9HY';
+  private readonly apikey = '810AMVHGA050E9HY';
   charts = [];
 
   constructor(private http: HttpClient) {
@@ -104,10 +104,7 @@ export class HighchartDataService {
   }
 
   createStockQuery(tickerSymbol) {
-    const url = `https://www.alphavantage.co/
-                query?function=TIME_SERIES_INTRADAY
-                &symbol=${tickerSymbol}
-                &interval=5min&apikey=${this.apikey}`;
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=5min&apikey=${this.apikey}`;
 
     return encodeURI(url);
   }
@@ -124,13 +121,13 @@ export class HighchartDataService {
   }
 
   transformDataForHighCharts(rawData) {
-    let quotes = rawData['Time Series (5min)'],
-      data = [],
-      i, item;
+    const quotes = rawData['Time Series (5min)'];
+    const data = [];
+    let item;
 
+    // tslint:disable-next-line: forin
     for (const each in quotes) {
       item = quotes[each];
-
       data.push([new Date(each).getTime(),
       parseFloat(item['4. close'])]);
     }

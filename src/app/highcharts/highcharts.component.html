@@ -1,2 +1,11 @@
-<app-stocklist></app-stocklist>
-<app-stockbody></app-stockbody>
+<div class="row pt-2">
+    <div class="col-12">
+        <app-stocklist  (selectedStockSymbol)="symbolSelectedFromList($event)"></app-stocklist>
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-12">
+        <app-stockbody></app-stockbody>
+    </div>
+</div>
