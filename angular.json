@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NgAppScaffoldingTemplateMultiMod": {
+    "NgAppChartDemoes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/NgAppScaffoldingTemplateMultiMod",
+            "outputPath": "dist/NgAppChartDemoes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "NgAppScaffoldingTemplateMultiMod:build"
+            "browserTarget": "NgAppChartDemoes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "NgAppScaffoldingTemplateMultiMod:build:production"
+              "browserTarget": "NgAppChartDemoes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NgAppScaffoldingTemplateMultiMod:build"
+            "browserTarget": "NgAppChartDemoes:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "NgAppScaffoldingTemplateMultiMod:serve"
+            "devServerTarget": "NgAppChartDemoes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "NgAppScaffoldingTemplateMultiMod:serve:production"
+              "devServerTarget": "NgAppChartDemoes:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "NgAppScaffoldingTemplateMultiMod"
+  "defaultProject": "NgAppChartDemoes"
 }
