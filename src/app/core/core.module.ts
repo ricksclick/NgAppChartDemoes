@@ -15,8 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     CoreRoutingModule,
     SharedModule
-  ],
-  exports: [BaseComponent],
-  entryComponents: [BaseComponent]
+  ]
 })
 export class CoreModule { }

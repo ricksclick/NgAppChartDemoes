@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReUsableOneComponent } from './components/re-usable-one/re-usable-one.component';
-import { ReUsableTwoComponent } from './components/re-usable-two/re-usable-two.component';
-import { ReUsableDirectiveOneDirective } from './directives/re-usable-directive-one.directive';
-import { ReUsablePipeOnePipe } from './pipes/re-usable-pipe-one.pipe';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faHome, faInfo, faBars } from '@fortawesome/free-solid-svg-icons';
 
 
+const FA_ICONS = [
+  faHome, faInfo, faBars
+];
 
+const FA_ICON_PACKS = [];
 @NgModule({
-  declarations: [ReUsableOneComponent, ReUsableTwoComponent, ReUsableDirectiveOneDirective, ReUsablePipeOnePipe],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
-  exports: [ReUsableOneComponent, ReUsableTwoComponent, ReUsableDirectiveOneDirective, ReUsablePipeOnePipe]
+  exports: [FontAwesomeModule]
 })
-export class SharedModule { }
+export class SharedModule {
+  constructor(faLibrary: FaIconLibrary) {
+    faLibrary.addIconPacks(...FA_ICON_PACKS);
+    faLibrary.addIcons(...FA_ICONS);
+  }
+}

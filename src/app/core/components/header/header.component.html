@@ -1,7 +1,4 @@
 <header class="main-nav-container">
-    <div class="banner">
-        
-    </div>
     <nav class="main-nav">
         <div class="brand-wrapper">
             <a href="javascript:void(0)" routerLink="/home" class="brand-logo">
@@ -20,18 +17,18 @@
         <div class="nav-elements" [@dropdown]="animationEnabled ? navToggled ? 'expanded' : 'collapsed' : '*'">
             <ul [@staggeredFadeIn]="navToggled">
                 <li>
-                    <a href="javascript:void(0)" routerLink="/about" routerLinkActive='active'>
-                        <span>About</span>
+                    <a href="javascript:void(0)" routerLink="/highcharts" routerLinkActive='active'>
+                        <span>HighCharts</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)" routerLink="/blog" routerLinkActive='active'>
-                        <span>Blogs</span>
+                    <a href="javascript:void(0)" routerLink="/chartjs" routerLinkActive='active'>
+                        <span>Chart.js</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)" routerLink="/demo" routerLinkActive='active'>
-                        <span>Demos</span>
+                    <a href="javascript:void(0)" routerLink="/gcharts" routerLinkActive='active'>
+                        <span>Google Charts</span>
                     </a>
                 </li>
                 <li class="login-btn">
