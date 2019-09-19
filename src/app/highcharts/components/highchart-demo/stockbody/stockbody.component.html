@@ -1,6 +1,7 @@
 <section>
     <figure class="figure">
-        <div #charts [hidden]="!isLoading"></div>
+        <highcharts-chart [hidden]="!isLoading" [Highcharts]="Highcharts" [options]="chartOptions"
+            style="width: 100%; height: 400px; display: block;"></highcharts-chart>
         <figcaption class="figure-caption" [hidden]="isLoading">Loading...</figcaption>
     </figure>
 </section>

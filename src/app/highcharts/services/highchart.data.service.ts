@@ -28,21 +28,7 @@ export class HighchartDataService {
    * @memberof HighchartDataService
    */
   createChart(container, symbol, data = null) {
-    const e = document.createElement('div');
-
-    container.appendChild(e);
-
-    const options: any = this.transformConfiguration(symbol, data);
-
-    if (options.chart != null) {
-      options.chart.renderTo = e;
-    } else {
-      options.chart = {
-        renderTo: e
-      };
-    }
-
-    this.charts.push(new Highcharts.Chart(options));
+    
   }
 
   /**

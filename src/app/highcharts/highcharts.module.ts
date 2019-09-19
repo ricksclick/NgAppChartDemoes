@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { HighChartsBaseRoutingModule } from './highcharts-routing.module';
 import { HighChartsBaseComponent } from './highcharts.component';
@@ -11,10 +13,19 @@ import { HighstocksDemoComponent } from './components/highstocks-demo/highstocks
 
 
 @NgModule({
-  declarations: [HighChartsBaseComponent, StocklistComponent, StockbodyComponent, StocklistItemComponent, HighchartDemoComponent, HighstocksDemoComponent],
+  declarations: [
+    HighChartsBaseComponent,
+    StocklistComponent,
+    StockbodyComponent,
+    StocklistItemComponent,
+    HighchartDemoComponent,
+    HighstocksDemoComponent
+  ],
   imports: [
     CommonModule,
-    HighChartsBaseRoutingModule
+    HighChartsBaseRoutingModule,
+    FormsModule,
+    HighchartsChartModule
   ]
 })
 export class HighChartsDemoModule { }

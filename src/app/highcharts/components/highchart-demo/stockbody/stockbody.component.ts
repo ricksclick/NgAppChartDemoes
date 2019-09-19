@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import * as Highcharts from 'highcharts';
 import { HighchartDataService } from '../../../services/highchart.data.service';
-import { StockSymbol } from 'src/app/shared/models/stock-symbol';
 
 @Component({
   selector: 'app-stockbody',
@@ -8,22 +8,27 @@ import { StockSymbol } from 'src/app/shared/models/stock-symbol';
   styleUrls: ['./stockbody.component.scss']
 })
 export class StockbodyComponent implements OnInit, AfterViewInit {
+  private _isLoading = true;
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    series: [{
+      data: [1, 2, 3],
+      type: 'line'
+    }]
+  };
 
-  @ViewChild('charts', { static: false }) private chartEl: ElementRef;
-  private _isLoading = false;
   constructor(private hcs: HighchartDataService) {
 
   }
+
 
   ngOnInit() { }
 
   ngAfterViewInit() {
     // this.createChart();
   }
-
-  createChart(symbolId:string) {
+  createChart(symbolId: string) {
     this.hcs.loadData('ATVI', (symbolId, data) => {
-      this.hcs.createChart(this.chartEl.nativeElement, symbolId, data);
       this._isLoading = true;
     });
   }
