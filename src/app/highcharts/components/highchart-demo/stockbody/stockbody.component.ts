@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { HighchartDataService } from '../../services/highchart.data.service';
+import { HighchartDataService } from '../../../services/highchart.data.service';
 import { StockSymbol } from 'src/app/shared/models/stock-symbol';
 
 @Component({
@@ -20,10 +20,6 @@ export class StockbodyComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // this.createChart();
   }
-
-  // ngOnDestroy() {
-
-  // }
 
   createChart(symbolId:string) {
     this.hcs.loadData('ATVI', (symbolId, data) => {

@@ -1,11 +1,16 @@
-<div class="row pt-2">
-    <div class="col-12">
-        <app-stocklist  (selectedStockSymbol)="symbolSelectedFromList($event)"></app-stocklist>
-    </div>
-</div>
-
-<div class="row pt-2">
-    <div class="col-12">
-        <app-stockbody></app-stockbody>
-    </div>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:void(0)" routerLink="highcharts-demo"
+            routerLinkActive="active">HighCharts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" routerLink="highstocks-demo"
+            routerLinkActive="active">Highstocks</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="javascript:void(0)">Highmaps</a>
+    </li>
+</ul>
+<div class="p-4">
+    <router-outlet></router-outlet>
 </div>
