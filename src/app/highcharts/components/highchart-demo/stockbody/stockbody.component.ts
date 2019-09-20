@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { HighchartDataService } from '../../../services/highchart.data.service';
 
@@ -21,15 +21,19 @@ export class StockbodyComponent implements OnInit, AfterViewInit {
 
   }
 
+  @ViewChild('container', { static: false }) chartContainer: ElementRef;
+
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    // this.createChart();
+    this.createChart('abcd');
   }
   createChart(symbolId: string) {
     this.hcs.loadData('ATVI', (symbolId, data) => {
       this._isLoading = true;
+      // this.chartOptions = this.hcs.transformConfiguration(symbolId, data);
+
     });
   }
 

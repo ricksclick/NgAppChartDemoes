@@ -1,19 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import * as Highcharts from 'highcharts/highstock';
+import * as Highcharts from 'highcharts';
 import StockModule from 'highcharts/modules/stock';
-
 StockModule(Highcharts);
 
-Highcharts.setOptions({
-  title: {
-    style: {
-      color: 'tomato'
-    }
-  },
-  legend: {
-    enabled: false
-  }
-});
+import HC_customEvents from 'highcharts-custom-events';
+HC_customEvents(Highcharts);
 
 @Component({
   selector: 'app-highstocks-demo',
@@ -23,48 +14,102 @@ Highcharts.setOptions({
 export class HighstocksDemoComponent implements OnInit {
 
   constructor() { }
-
   Highcharts: typeof Highcharts = Highcharts;
-  optFromInputString = `
-  {
-    "title": { "text": "Highcharts chart" },
-    "series": [{
-      "data": [11,2,3],
-      "zones": [{
-        "value": 7.2,
-        "dashStyle": "dot",
-        "color": "red"
-      }]
-    }, {
-      "data": [5,6,7]
-    }]
-  }
-  `;
+  updateDemo2 = false;
+  usedIndex = 0;
+  chartTitle = 'My chart'; // for init - change through titleChange
 
-  optFromInput: Highcharts.Options = JSON.parse(this.optFromInputString);
-  updateFromInput = false;
+  charts = [
+    {
+      hcOptions: {
+        title: { text: this.chartTitle },
+        subtitle: { text: '1st data set' },
+        plotOptions: {
+          series: {
+            pointStart: Date.now(),
+            pointInterval: 86400000 // 1 day
+          }
+        },
+        series: [
+          {
+            type: 'bar',
+            data: [11, 2, 3],
+            threshold: 5,
+            negativeColor: 'red',
+            events: {
+              dblclick(event) {
+                console.log('dblclick - thanks to the Custom Events plugin', event);
+              }
+            }
+          },
+          {
+            type: 'bar',
+            data: [
+              [0, 15, -6, 7],
+              [7, 12, -1, 3],
+              [3, 10, -3, 3]
+            ],
+            threshold: 5,
+            negativeColor: 'red'
+          }
+        ]
+      } as Highcharts.Options,
+      hcCallback: (chart: Highcharts.Chart) => {
+        console.log('some variables: ', Highcharts, chart, this.charts);
+      }
+    },
+    {
+      hcOptions: {
+        title: { text: this.chartTitle },
+        subtitle: { text: '2nd data set' },
+        series: [{
+          type: 'column',
+          data: [4, 3, -12],
+          threshold: -10
+        }, {
+          type: 'ohlc',
+          data: [
+            [0, 15, -6, 7],
+            [7, 12, -1, 3],
+            [3, 10, -3, 3]
+          ]
+        }]
+      } as Highcharts.Options,
+      hcCallback: () => { }
+    },
+    {
+      hcOptions: {
+        title: { text: this.chartTitle },
+        subtitle: { text: '3rd data set' },
+        series: [{
+          type: 'scatter',
+          data: [1, 2, 3, 4, 5]
+        }, {
+          type: 'areaspline',
+          data: [
+            5,
+            11,
+            3,
+            6,
+            0
+          ]
+        }]
+      } as Highcharts.Options,
+      hcCallback: () => { }
+    }
+  ];
 
-  seriesTypes: { [key: string]: string } = {
-    line: 'column',
-    column: 'scatter',
-    scatter: 'spline',
-    spline: 'line'
-  };
+  // change in all places
+  titleChange(event: any) {
+    const v = event;
+    this.chartTitle = v;
 
-  logChartInstance(chart: Highcharts.Chart) {
-    console.log('Chart instance: ', chart);
-  }
+    this.charts.forEach((el) => {
+      el.hcOptions.title.text = v;
+    });
 
-  updateInputChart() {
-    this.optFromInput = JSON.parse(this.optFromInputString);
-  }
-
-  toggleSeriesType(index: number = 0) {
-    this.optFromInput.series[index].type =
-      this.seriesTypes[this.optFromInput.series[index].type || 'line'] as
-      'column' | 'scatter' | 'spline' | 'line';
-    // nested change - must trigger update
-    this.updateFromInput = true;
+    // trigger ngOnChanges
+    this.updateDemo2 = true;
   }
 
   ngOnInit() {

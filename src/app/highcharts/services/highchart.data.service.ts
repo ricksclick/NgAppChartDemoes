@@ -12,34 +12,32 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HighchartDataService {
-  private readonly apikey = '810AMVHGA050E9HY';
-  charts = [];
+  apikey = '810AMVHGA050E9HY';
+  lastChart = null;
 
   constructor(private http: HttpClient) {
 
   }
 
-  /**
-   *
-   *
-   * @param {*} container
-   * @param {*} symbol
-   * @param {*} [data=null]
-   * @memberof HighchartDataService
-   */
   createChart(container, symbol, data = null) {
-    
+    const options: any = this.transformConfiguration(symbol, data);
+    let { lastChart } = this;
+
+    if (options.chart != null) {
+      options.chart.renderTo = container;
+    } else {
+      options.chart = {
+        renderTo: container
+      };
+    }
+
+    if (lastChart != null) {
+      lastChart.destroy();
+    }
+
+    lastChart = new Highcharts.Chart(options);
   }
 
-  /**
-   *
-   *
-   * @returns
-   * @memberof HighchartDataService
-   */
-  getCharts() {
-    return this.charts;
-  }
 
   /**
    *
@@ -48,7 +46,7 @@ export class HighchartDataService {
    * @param {*} data
    * @returns
    * @memberof HighchartDataService
-   * @description Retrieves Chart Intra Day
+   * @description Retrieve Chart Intra Day
    */
   chartIntraDay(symbol, data) {
     const config = {
@@ -90,7 +88,8 @@ export class HighchartDataService {
   }
 
   createStockQuery(tickerSymbol) {
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=5min&apikey=${this.apikey}`;
+    const url
+      = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=5min&apikey=${this.apikey}`;
 
     return encodeURI(url);
   }
